@@ -6,6 +6,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        otp-version: ["24.0", "24.1", "24.2"]
+        elixir-version: ["1.11", "1.12", "1.13"]
 
     services:
       db:
@@ -34,8 +39,8 @@ jobs:
 
       - uses: erlef/setup-beam@v1
         with:
-          otp-version: "24.2"
-          elixir-version: "1.13"
+          otp-version: ${{ matrix.otp-version }}
+          elixir-version: ${{ matrix.elixir-version }}
 
       - run: mix deps.get --only test
 
