@@ -1,2 +1,0 @@
-alias Repo
-alias Post
