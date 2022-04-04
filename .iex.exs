@@ -1,2 +1,2 @@
-alias EctoArrayBug.Repo
-alias EctoArrayBug.Post
+alias Repo
+alias Post
